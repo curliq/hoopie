@@ -1,13 +1,20 @@
 package com.hoopie.joao.hoopie.utils;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.util.TypedValue;
 
+import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+import com.hoopie.joao.hoopie.R;
 
 import org.joda.time.DateTime;
 import org.joda.time.format.ISODateTimeFormat;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -63,11 +70,17 @@ public class Helper {
     }
 
     /**
-     * Get pixels amount from density pixels amount.
+     * Get SharedPreferences object.
      */
-    public int getDP(double dp, Context context) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, (float) dp, context.getResources()
-                .getDisplayMetrics());
+    public SharedPreferences getPrefs(Context context) {
+        return context.getSharedPreferences(context.getString(R.string.preferences_key), Context.MODE_PRIVATE);
+    }
+
+    /**
+     * Take object and return String in json format
+     */
+    public String serializeObj(Object object) {
+        return new Gson().toJson(object);
     }
 
     /**

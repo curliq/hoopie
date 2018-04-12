@@ -4,4 +4,8 @@
     <string name="tv_title_transition">tv_title</string>
     <string name="tv_subtitle_transition">tv_subtitle</string>
     <string name="ll_thumbnail_shadow_transition">ll_thumbnail_shadow</string>
+    <string name="preferences_key">hoopie</string>
+
+    <!-- storage -->
+    <string name="activitiesArray">activitiesArray</string>
 </resources>

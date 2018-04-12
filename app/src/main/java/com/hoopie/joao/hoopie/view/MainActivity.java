@@ -9,10 +9,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.hoopie.joao.hoopie.R;
 import com.hoopie.joao.hoopie.model.ActivitiesResponseEvent;
 import com.hoopie.joao.hoopie.model.ActivityPOJO;
 import com.hoopie.joao.hoopie.model.MainModel;
+import com.hoopie.joao.hoopie.utils.Helper;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -20,6 +23,7 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import butterknife.BindView;
@@ -34,15 +38,25 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivitiesRecyclerAdapter activitiesRecyclerAdapter;
     private ArrayList<ActivityPOJO> activitiesArray;
+    private Helper helper = new Helper();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         init();
         setupActivitiesRecyclerView();
-        setupToolbar();
 
-        new MainModel().requestActivities();
+        // get cached array of activities
+        ArrayList<ActivityPOJO> cachedArray = new Gson().fromJson(
+                helper.getPrefs(this).getString(getString(R.string.activitiesArray), null),
+                new TypeToken<List<ActivityPOJO>>() {}.getType());
+
+        // populate list with cached array of activities, if exists
+        if (cachedArray != null)
+            populateActivitiesList(cachedArray);
+
+        // hit activities endpoint
+        new MainModel().requestActivities(this);
     }
 
     /**
@@ -51,12 +65,6 @@ public class MainActivity extends AppCompatActivity {
     private void init() {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-    }
-
-    /**
-     * Setup toolbar title, and scrolling elevation animation
-     */
-    private void setupToolbar() {
         Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/Happy-Marker.ttf");
         tvTitle.setTypeface(tf);
     }
