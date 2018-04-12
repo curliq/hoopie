@@ -1,10 +1,10 @@
 # Hoopie
 
 ### Purpose
-A single page native Android app to display activities for kids from http://files.hoop.co.uk/test.json.
+A native Android app to display activities for kids from http://files.hoop.co.uk/test.json.
 
 ### Run
-- Built with Android Studio 3.1.1 and tested on Android 8.0 (26), compatible up to Android 5.0 (21).
+- Built with Android Studio 3.1.1 and tested on Android 8.0 (26), compatible all the way down to Android 5.0 (21).
 - [APK file](https://cdn.discordapp.com/attachments/420735220593983508/434126286764507156/app-debug.apk) for convinience
 
 ### Structure
