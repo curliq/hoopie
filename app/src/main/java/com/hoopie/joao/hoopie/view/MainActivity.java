@@ -7,7 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -33,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.mainActivity_tv_title)
     protected TextView tvTitle;
+    @BindView(R.id.mainActivity_pb_loading)
+    ProgressBar pbLoading;
     @BindView(R.id.mainActivity_rv_activities)
     protected RecyclerView rvActivities;
 
@@ -49,7 +54,8 @@ public class MainActivity extends AppCompatActivity {
         // get cached array of activities
         ArrayList<ActivityPOJO> cachedArray = new Gson().fromJson(
                 helper.getPrefs(this).getString(getString(R.string.activitiesArray), null),
-                new TypeToken<List<ActivityPOJO>>() {}.getType());
+                new TypeToken<List<ActivityPOJO>>() {
+                }.getType());
 
         // populate list with cached array of activities, if exists
         if (cachedArray != null)
@@ -85,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
      * This assumes that an activity will never have its data changed
      */
     private void populateActivitiesList(ArrayList<ActivityPOJO> activitiesArray) {
+        pbLoading.setVisibility(View.GONE);
         for (ActivityPOJO activityPOJO : activitiesArray) {
 
             // Use Stream if api >= 24
@@ -95,8 +102,7 @@ public class MainActivity extends AppCompatActivity {
                     this.activitiesArray.add(activityPOJO);
                     this.activitiesRecyclerAdapter.notifyItemInserted(this.activitiesArray.indexOf(activityPOJO));
                 }
-            }
-            else {
+            } else {
                 for (ActivityPOJO cachedActivityPOJO : this.activitiesArray) {
                     if (!cachedActivityPOJO.getId().equals(activityPOJO.getId())) {
                         this.activitiesArray.add(activityPOJO);
@@ -115,7 +121,13 @@ public class MainActivity extends AppCompatActivity {
      */
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onActivitiesResponse(ActivitiesResponseEvent event) {
-        populateActivitiesList(event.activitiesArray);
+        pbLoading.setVisibility(View.GONE);
+        if (event.status == Helper.HttpResponses.SUCCESS.ordinal())
+            populateActivitiesList(event.activitiesArray);
+        else if (event.status == Helper.HttpResponses.SERVER_ERROR.ordinal())
+            Toast.makeText(this, "Something wrong on our side", Toast.LENGTH_SHORT).show();
+        else if (event.status == Helper.HttpResponses.NETWORK_ERROR.ordinal())
+            Toast.makeText(this, "Check your internet connection", Toast.LENGTH_SHORT).show();
     }
 
     @Override
