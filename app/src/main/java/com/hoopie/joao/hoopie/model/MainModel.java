@@ -1,7 +1,5 @@
 package com.hoopie.joao.hoopie.model;
 
-import android.content.Context;
-
 import com.hoopie.joao.hoopie.utils.Helper;
 
 import org.greenrobot.eventbus.EventBus;

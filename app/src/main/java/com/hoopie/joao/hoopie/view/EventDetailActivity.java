@@ -23,29 +23,29 @@ import butterknife.ButterKnife;
 public class EventDetailActivity extends AppCompatActivity {
 
     @BindView(R.id.eventDetailActivity_rl_backbutton)
-    RelativeLayout rlBackButton;
+    protected RelativeLayout rlBackButton;
     @BindView(R.id.eventDetailActivity_iv_thumbnail)
-    ImageView ivThumbnail;
+    protected ImageView ivThumbnail;
     @BindView(R.id.eventDetailActivity_tv_title)
-    TextView tvTitle;
+    protected TextView tvTitle;
     @BindView(R.id.eventDetailActivity_tv_subTitle)
-    TextView tvSubTitle;
+    protected TextView tvSubTitle;
     @BindView(R.id.eventDetailActivity_tv_tag)
-    TextView tvTag;
+    protected TextView tvTag;
     @BindView(R.id.eventDetailActivity_tv_description)
-    TextView tvDescription;
+    protected TextView tvDescription;
     @BindView(R.id.eventDetailActivity_liv_day)
-    ListItemView livDay;
+    protected ListItemView livDay;
     @BindView(R.id.eventDetailActivity_liv_hour)
-    ListItemView livHour;
+    protected ListItemView livHour;
     @BindView(R.id.eventDetailActivity_liv_age)
-    ListItemView livAge;
+    protected ListItemView livAge;
     @BindView(R.id.eventDetailActivity_liv_location)
-    ListItemView livLocation;
+    protected ListItemView livLocation;
     @BindView(R.id.eventDetailActivity_iv_map)
-    ImageView ivMap;
+    protected ImageView ivMap;
     @BindView(R.id.eventDetailActivity_rl_action)
-    RelativeLayout rlAction;
+    protected RelativeLayout rlAction;
 
     private ActivityPOJO activityPOJO;
     private Helper helper = new Helper();

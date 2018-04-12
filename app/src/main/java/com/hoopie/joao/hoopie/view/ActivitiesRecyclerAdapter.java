@@ -78,11 +78,11 @@ public class ActivitiesRecyclerAdapter extends RecyclerView.Adapter<ActivitiesRe
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        RelativeLayout rlClickableLayout;
-        LinearLayout llShadowLayout;
-        TextView tvTitle, tvSubTitle;
-        ImageView ivThumbnail;
-        ListItemView livDay, livHour, livAge;
+        private RelativeLayout rlClickableLayout;
+        private LinearLayout llShadowLayout;
+        private TextView tvTitle, tvSubTitle;
+        private ImageView ivThumbnail;
+        private ListItemView livDay, livHour, livAge;
 
         ViewHolder(View itemView) {
             super(itemView);

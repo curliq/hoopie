@@ -28,9 +28,9 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.mainActivity_tv_title)
-    TextView tvTitle;
+    protected TextView tvTitle;
     @BindView(R.id.mainActivity_rv_activities)
-    RecyclerView rvActivities;
+    protected RecyclerView rvActivities;
 
     private ActivitiesRecyclerAdapter activitiesRecyclerAdapter;
     private ArrayList<ActivityPOJO> activitiesArray;

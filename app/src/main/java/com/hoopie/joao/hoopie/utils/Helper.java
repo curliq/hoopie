@@ -120,7 +120,7 @@ public class Helper {
      * Make text for the activity ages.
      */
     public String makeAgeString(String ages) {
-        return ages.equals("All Ages") ? ages : ages + " old";
+        return "All Ages".equals(ages) ? ages : ages + " old";
     }
 
     /**
