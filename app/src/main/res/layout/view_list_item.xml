@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/listItem_iv_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/ic_clock"/>
+
+    <TextView
+        android:id="@+id/listItem_tv_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/space_around"
+        android:textColor="@color/list_item_text"
+        android:text="asdasd"/>
+
+    <TextView
+        android:id="@+id/listItem_tv_subtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/list_item_subtext"
+        android:layout_marginLeft="4dp"
+        android:layout_gravity="center_vertical"/>
+
+</LinearLayout>

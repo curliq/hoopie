@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#EADD6D</color>
+    <color name="colorPrimaryDark">#b4aa56</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="section_title_text_color">#656565</color>
+    <color name="light_background">#FAFAFA</color>
+    <color name="list_item_icon">#acacac</color>
+    <color name="list_item_text">#acacac</color>
+    <color name="list_item_subtext">#BABABA</color>
+    <color name="thumbnail_title_background">#9c000000</color>
+</resources>

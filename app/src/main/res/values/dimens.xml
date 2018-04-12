@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="section_title_text_size">24sp</dimen>
+    <dimen name="statusbar_height">24dp</dimen>
+    <dimen name="toolbar_height">56dp</dimen>
+    <dimen name="card_corners">8dp</dimen>
+    <dimen name="card_elevation">4dp</dimen>
+    <dimen name="space_around">12dp</dimen>
+    <dimen name="space_around_half">6dp</dimen>
+    <dimen name="list_item_icon">18dp</dimen>
+</resources>

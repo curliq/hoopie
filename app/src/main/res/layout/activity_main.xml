@@ -1,0 +1,40 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.MainActivity">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/mainActivity_cd_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/statusbar_height"
+        app:cardBackgroundColor="@color/light_background"
+        app:cardCornerRadius="0dp">
+
+        <TextView
+            android:id="@+id/mainActivity_tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_height"
+            android:layout_marginTop="@dimen/statusbar_height"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/space_around"
+            android:text="Activities For Kids"
+            android:textColor="@color/section_title_text_color"
+            android:textSize="@dimen/section_title_text_size"/>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/mainActivity_rv_activities"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mainActivity_cd_toolbar"
+        android:paddingTop="@dimen/space_around_half"
+        android:paddingBottom="@dimen/space_around_half"
+        android:clipToPadding="false"
+        />
+
+</RelativeLayout>
