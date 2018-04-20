@@ -54,7 +54,8 @@ public class MainActivity extends AppCompatActivity {
         // get cached array of activities
         ArrayList<ActivityPOJO> cachedArray = new Gson().fromJson(
                 helper.getPrefs(this).getString(getString(R.string.activitiesArray), null),
-                new TypeToken<List<ActivityPOJO>>() {}.getType());
+                new TypeToken<List<ActivityPOJO>>() {
+                }.getType());
 
         // populate list with cached array of activities, if exists
         if (cachedArray != null)
@@ -102,11 +103,15 @@ public class MainActivity extends AppCompatActivity {
                     this.activitiesRecyclerAdapter.notifyItemInserted(this.activitiesArray.indexOf(activityPOJO));
                 }
             } else {
+                boolean containsItem = false;
                 for (ActivityPOJO cachedActivityPOJO : this.activitiesArray) {
-                    if (!cachedActivityPOJO.getId().equals(activityPOJO.getId())) {
-                        this.activitiesArray.add(activityPOJO);
-                        this.activitiesRecyclerAdapter.notifyItemInserted(this.activitiesArray.indexOf(activityPOJO));
+                    if (cachedActivityPOJO.getId().equals(activityPOJO.getId())) {
+                        containsItem = true;
                     }
+                }
+                if (!containsItem) {
+                    this.activitiesArray.add(activityPOJO);
+                    this.activitiesRecyclerAdapter.notifyItemInserted(this.activitiesArray.indexOf(activityPOJO));
                 }
             }
         }
