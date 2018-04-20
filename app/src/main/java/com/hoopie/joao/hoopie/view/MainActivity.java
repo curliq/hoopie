@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.mainActivity_tv_title)
     protected TextView tvTitle;
     @BindView(R.id.mainActivity_pb_loading)
-    ProgressBar pbLoading;
+    protected ProgressBar pbLoading;
     @BindView(R.id.mainActivity_rv_activities)
     protected RecyclerView rvActivities;
 
@@ -54,8 +54,7 @@ public class MainActivity extends AppCompatActivity {
         // get cached array of activities
         ArrayList<ActivityPOJO> cachedArray = new Gson().fromJson(
                 helper.getPrefs(this).getString(getString(R.string.activitiesArray), null),
-                new TypeToken<List<ActivityPOJO>>() {
-                }.getType());
+                new TypeToken<List<ActivityPOJO>>() {}.getType());
 
         // populate list with cached array of activities, if exists
         if (cachedArray != null)
