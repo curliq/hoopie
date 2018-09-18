@@ -1,7 +1,7 @@
 # Hoopie
 
 ### Purpose
-A native Android app to display activities for kids from http://files.hoop.co.uk/test.json.
+A native Android app to display activities for kids.
 
 ### Run
 - Built with Android Studio 3.1.1 and tested on Android 8.0 (26), compatible all the way down to Android 5.0 (21).
@@ -22,6 +22,3 @@ This being a small app, it follows a simple structure.
 - **Retrofit** - Perform HTTP requests.
 - **Picasso** - Load venue's images and cache them.
 - **JodaTime** - Convert ISO datetime strings to timezone aware date objects
-
-
-*Made for Hoop :)*
